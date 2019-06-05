@@ -165,7 +165,7 @@ body {
   }
 }
 
-/* pseudo elements - special states of an element, e.g. link */
+/* pseudo classes - special states of an element, e.g. link */
 .btn:link,
 /* has already clicked on button once */
 .btn:visited {
