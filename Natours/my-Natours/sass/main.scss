@@ -4,6 +4,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: 000;
 
 /*basic CSS reset for cross-browser support*/
 *,
@@ -51,30 +52,30 @@ body {
     100% 75%,
     0 100%
   ); /*changes the shape of the div*/ /* top left x y, top right x y, bottom right x y, bottom left x y*/ /*helpful resource https://bennettfeely.com/clippy/*/
-}
 
-.header__logo-box {
-  /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
+  &__logo-box {
+    /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
 
-.header__logo {
-  height: 3.5rem; /*width will scale accordingly, prefer to control height v width*/
-}
+  &__logo {
+    height: 3.5rem; /*width will scale accordingly, prefer to control height v width*/
+  }
 
-/*can use animations in multiple places*/
-/* .logo:hover {
-  animation: moveInRight 1s ease-out;
-} */
+  /*can use animations in multiple places*/
+  /* .logo:hover {
+    animation: moveInRight 1s ease-out;
+	} */
 
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 }
 
 .heading-primary {
@@ -83,31 +84,31 @@ body {
 
   backface-visibility: hidden; /*prevents the little shake at the end of the header animations*/
   margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-  display: block; /*makes the span take up the entire width of the page*/
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem; /*room between the characters*/
+  &--main {
+    display: block; /*makes the span take up the entire width of the page*/
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem; /*room between the characters*/
 
-  /*only need 2 elements to create an animation*/
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /*can add other animation properties too*/
-  /* animation-delay: 3s; */
-  /* animation-iteration-count: 3; */
-}
+    /*only need 2 elements to create an animation*/
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*can add other animation properties too*/
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */
+  }
 
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
 
-  /*can combine all major animation properties into one line*/
-  animation: moveInRight 1s ease-out;
+    /*can combine all major animation properties into one line*/
+    animation: moveInRight 1s ease-out;
+  }
 }
 
 @keyframes moveInLeft {
@@ -164,60 +165,62 @@ body {
 }
 
 /* pseudo classes - special states of an element, e.g. link */
-.btn:link,
-/* has already clicked on button once */
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem; /*rounds the edges*/
-  transition: all 0.2s; /*transition property needs to be on initial state*/
-  position: relative;
-}
+.btn {
+  &:link,
+	/* has already clicked on button once */
+	&:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem; /*rounds the edges*/
+    transition: all 0.2s; /*transition property needs to be on initial state*/
+    position: relative;
+  }
 
-.btn:hover {
-  /*to go up on the y axis, you have to use a negative cause it goes from top to bottom*/
-  transform: translateY(-3px);
-  /* creates a really subtle shadow under the button */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+  &:hover {
+    /*to go up on the y axis, you have to use a negative cause it goes from top to bottom*/
+    transform: translateY(-3px);
+    /* creates a really subtle shadow under the button */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-  transform: translate(-1px);
-  /* makes the button look closer to the page, 5px is distance from button, 10px is blur */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
 
-.btn--white {
-  background-color: $color-white;
-  color: $color-grey-dark;
-}
+  &:active {
+    transform: translate(-1px);
+    /* makes the button look closer to the page, 5px is distance from button, 10px is blur */
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
 
-/* 'after' pseudo element adds a virtual element that we can then style */
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
 
-.btn--white::after {
-  background-color: $color-white;
-}
+    &::after {
+      background-color: $color-white;
+    }
+  }
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
+  /* 'after' pseudo element adds a virtual element that we can then style */
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
 
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
 }
