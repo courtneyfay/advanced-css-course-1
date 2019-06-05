@@ -33,7 +33,8 @@ body {
     ),
     url(../img/hero.jpg); /*can combine functions inside background-image */
   background-size: cover; /*fits element inside the container, makes it responsive*/
-  background-position: top; /**/
+  background-position: top; /*specifies the top edge as the origin for the next offset*/
+  position: relative; /*allows logo to be moved in relation to this element*/
 
   clip-path: polygon(
     0 0,
@@ -41,4 +42,41 @@ body {
     100% 75%,
     0 100%
   ); /*changes the shape of the div*/ /* top left x y, top right x y, bottom right x y, bottom left x y*/ /*helpful resource https://bennettfeely.com/clippy/*/
+}
+
+.logo-box {
+  /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px; /*width will scale accordingly, prefer to control height v width*/
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block; /*makes the span take up the entire width of the page*/
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px; /*room between the characters*/
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
