@@ -8,20 +8,31 @@ Dark green: #28b485
 */
 
 /*basic CSS reset for cross-browser support*/
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /*can use inherit keyword to force inheritance*/
+}
+
+html {
+  /* this is the place to define font-size in order to use rems */
+  /* this makes it much easier to write media queries and make responsive sites */
+  font-size: 62.5%;
+  /*better practice not to over-ride user font size settings with px */
+  /*when 10 px, 1 rem = 10 px*/
 }
 
 body {
   /*customary to define fonts in the body*/
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -47,12 +58,12 @@ body {
 .logo-box {
   /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px; /*width will scale accordingly, prefer to control height v width*/
+  height: 3.5rem; /*width will scale accordingly, prefer to control height v width*/
 }
 
 /*can use animations in multiple places*/
@@ -73,14 +84,14 @@ body {
   text-transform: uppercase;
 
   backface-visibility: hidden; /*prevents the little shake at the end of the header animations*/
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   display: block; /*makes the span take up the entire width of the page*/
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px; /*room between the characters*/
+  letter-spacing: 3.5rem; /*room between the characters*/
 
   /*only need 2 elements to create an animation*/
   animation-name: moveInLeft;
@@ -93,9 +104,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
 
   /*can combine all major animation properties into one line*/
   animation: moveInRight 1s ease-out;
@@ -106,7 +117,7 @@ body {
   0% {
     opacity: 0; /*makes element invisible to start*/
     transform: translateX(
-      -100px
+      -10rem
     ); /*start a bit to the left*/ /*can use multiple transforms in the same row*/
   }
 
@@ -116,7 +127,7 @@ body {
 
   /*can create intermediate states*/
   80% {
-    transform: translateX(10px); /*gives it a small bounce to the right*/
+    transform: translateX(1rem); /*gives it a small bounce to the right*/
   }
 
   /* 100% is after the animation ends, final state*/
@@ -129,11 +140,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px); /*start a bit to the right*/
+    transform: translateX(10rem); /*start a bit to the right*/
   }
 
   80% {
-    transform: translateX(-10px); /*gives it a small bounce to the left*/
+    transform: translateX(-1rem); /*gives it a small bounce to the left*/
   }
 
   100% {
@@ -145,7 +156,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px); /*start a bit to the right*/
+    transform: translateY(3rem); /*start a bit to the right*/
   }
 
   100% {
@@ -160,9 +171,9 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px; /*rounds the edges*/
+  border-radius: 10rem; /*rounds the edges*/
   transition: all 0.2s; /*transition property needs to be on initial state*/
   position: relative;
 }
@@ -171,13 +182,13 @@ body {
   /*to go up on the y axis, you have to use a negative cause it goes from top to bottom*/
   transform: translateY(-3px);
   /* creates a really subtle shadow under the button */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translate(-1px);
   /* makes the button look closer to the page, 5px is distance from button, 10px is blur */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -191,7 +202,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
