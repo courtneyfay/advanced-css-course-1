@@ -55,14 +55,14 @@ body {
   ); /*changes the shape of the div*/ /* top left x y, top right x y, bottom right x y, bottom left x y*/ /*helpful resource https://bennettfeely.com/clippy/*/
 }
 
-.logo-box {
+.header__logo-box {
   /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem; /*width will scale accordingly, prefer to control height v width*/
 }
 
@@ -71,7 +71,7 @@ body {
   animation: moveInRight 1s ease-out;
 } */
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -87,7 +87,7 @@ body {
   margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block; /*makes the span take up the entire width of the page*/
   font-size: 6rem;
   font-weight: 400;
@@ -102,7 +102,7 @@ body {
   /* animation-iteration-count: 3; */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -191,7 +191,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -210,7 +210,7 @@ body {
   transition: all 0.4s;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -219,7 +219,7 @@ body {
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
 }
