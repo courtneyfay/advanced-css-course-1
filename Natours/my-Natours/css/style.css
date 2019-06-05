@@ -55,6 +55,11 @@ body {
   height: 35px; /*width will scale accordingly, prefer to control height v width*/
 }
 
+/*can use animations in multiple places*/
+/* .logo:hover {
+  animation: moveInRight 1s ease-out;
+} */
+
 .text-box {
   position: absolute;
   top: 40%;
@@ -65,6 +70,8 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  backface-visibility: hidden; /*prevents the little shake at the end of the header animations*/
 }
 
 .heading-primary-main {
@@ -72,6 +79,14 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px; /*room between the characters*/
+
+  /*only need 2 elements to create an animation*/
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /*can add other animation properties too*/
+  /* animation-delay: 3s; */
+  /* animation-iteration-count: 3; */
 }
 
 .heading-primary-sub {
@@ -79,4 +94,48 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /*can combine all major animation properties into one line*/
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  /* 0% is before the animation starts, initial state */
+  0% {
+    opacity: 0; /*makes element invisible to start*/
+    transform: translateX(
+      -100px
+    ); /*start a bit to the left*/ /*can use multiple transforms in the same row*/
+  }
+
+  /* 60% {
+    transform: rotate(180deg);
+  } */
+
+  /*can create intermediate states*/
+  80% {
+    transform: translateX(10px); /*gives it a small bounce to the right*/
+  }
+
+  /* 100% is after the animation ends, final state*/
+  100% {
+    opacity: 1;
+    transform: translate(0); /*move it to where it is right now*/
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); /*start a bit to the right*/
+  }
+
+  80% {
+    transform: translateX(-10px); /*gives it a small bounce to the left*/
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
