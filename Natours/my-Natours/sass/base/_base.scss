@@ -10,6 +10,7 @@
 html {
   /* this is the place to define font-size in order to use rems */
   /* this makes it much easier to write media queries and make responsive sites */
+  //this defines 1 rem as 10 px
   font-size: 62.5%;
   /*better practice not to over-ride user font size settings with px */
   /*when 10 px, 1 rem = 10 px*/
