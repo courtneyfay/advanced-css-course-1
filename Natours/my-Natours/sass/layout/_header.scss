@@ -10,6 +10,7 @@
   background-position: top; /*specifies the top edge as the origin for the next offset*/
   position: relative; /*allows logo to be moved in relation to this element*/
 
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(
     0 0,
     100% 0,
