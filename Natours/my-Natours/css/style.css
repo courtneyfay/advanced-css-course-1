@@ -1,96 +1,3 @@
-/*basic CSS reset for cross-browser support*/
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  /*can use inherit keyword to force inheritance*/ }
-
-html {
-  /* this is the place to define font-size in order to use rems */
-  /* this makes it much easier to write media queries and make responsive sites */
-  font-size: 62.5%;
-  /*better practice not to over-ride user font size settings with px */
-  /*when 10 px, 1 rem = 10 px*/ }
-
-body {
-  /*customary to define fonts in the body*/
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /*vh makes it that percentage of the viewport height*/
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /*can combine functions inside background-image */
-  background-size: cover;
-  /*fits element inside the container, makes it responsive*/
-  background-position: top;
-  /*specifies the top edge as the origin for the next offset*/
-  position: relative;
-  /*allows logo to be moved in relation to this element*/
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  /*changes the shape of the div*/
-  /* top left x y, top right x y, bottom right x y, bottom left x y*/
-  /*helpful resource https://bennettfeely.com/clippy/*/ }
-
-.header__logo-box {
-  /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem;
-  /*width will scale accordingly, prefer to control height v width*/ }
-
-/*can use animations in multiple places*/
-/* .logo:hover {
-  animation: moveInRight 1s ease-out;
-} */
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /*prevents the little shake at the end of the header animations*/
-  margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  /*makes the span take up the entire width of the page*/
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /*room between the characters*/
-  /*only need 2 elements to create an animation*/
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /*can add other animation properties too*/
-  /* animation-delay: 3s; */
-  /* animation-iteration-count: 3; */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /*can combine all major animation properties into one line*/
-  animation: moveInRight 1s ease-out; }
-
 @keyframes moveInLeft {
   /* 0% is before the animation starts, initial state */
   0% {
@@ -100,8 +7,8 @@ body {
     /*start a bit to the left*/
     /*can use multiple transforms in the same row*/ }
   /* 60% {
-    transform: rotate(180deg);
-  } */
+      transform: rotate(180deg);
+    } */
   /*can create intermediate states*/
   80% {
     transform: translateX(1rem);
@@ -133,54 +40,137 @@ body {
     opacity: 1;
     transform: translateY(0); } }
 
-/* pseudo classes - special states of an element, e.g. link */
-.btn:link,
-.btn:visited {
+/*basic CSS reset for cross-browser support*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*can use inherit keyword to force inheritance*/ }
+
+html {
+  /* this is the place to define font-size in order to use rems */
+  /* this makes it much easier to write media queries and make responsive sites */
+  font-size: 62.5%;
+  /*better practice not to over-ride user font size settings with px */
+  /*when 10 px, 1 rem = 10 px*/ }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  /*customary to define fonts in the body*/
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
   text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  border-radius: 10rem;
-  /*rounds the edges*/
-  transition: all 0.2s;
-  /*transition property needs to be on initial state*/
-  position: relative; }
+  backface-visibility: hidden;
+  /*prevents the little shake at the end of the header animations*/
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /*makes the span take up the entire width of the page*/
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /*room between the characters*/
+    /*only need 2 elements to create an animation*/
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*can add other animation properties too*/
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /*can combine all major animation properties into one line*/
+    animation: moveInRight 1s ease-out; }
 
-.btn:hover {
-  /*to go up on the y axis, you have to use a negative cause it goes from top to bottom*/
-  transform: translateY(-3px);
-  /* creates a really subtle shadow under the button */
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+/* pseudo classes - special states of an element, e.g. link */
+.btn {
+  /* 'after' pseudo element adds a virtual element that we can then style */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    /*rounds the edges*/
+    transition: all 0.2s;
+    /*transition property needs to be on initial state*/
+    position: relative; }
+  .btn:hover {
+    /*to go up on the y axis, you have to use a negative cause it goes from top to bottom*/
+    transform: translateY(-3px);
+    /* creates a really subtle shadow under the button */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translate(-1px);
+    /* makes the button look closer to the page, 5px is distance from button, 10px is blur */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s; }
+  .btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; }
 
-.btn:active {
-  transform: translate(-1px);
-  /* makes the button look closer to the page, 5px is distance from button, 10px is blur */
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.btn--white {
-  background-color: #fff;
-  color: #777; }
-
-/* 'after' pseudo element adds a virtual element that we can then style */
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all 0.4s; }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
-.btn--animated {
-  animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards; }
+.header {
+  height: 95vh;
+  /*vh makes it that percentage of the viewport height*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /*can combine functions inside background-image */
+  background-size: cover;
+  /*fits element inside the container, makes it responsive*/
+  background-position: top;
+  /*specifies the top edge as the origin for the next offset*/
+  position: relative;
+  /*allows logo to be moved in relation to this element*/
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  /*changes the shape of the div*/
+  /* top left x y, top right x y, bottom right x y, bottom left x y*/
+  /*helpful resource https://bennettfeely.com/clippy/*/
+  /*can use animations in multiple places*/
+  /* .logo:hover {
+      animation: moveInRight 1s ease-out;
+      } */ }
+  .header__logo-box {
+    /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem;
+    /*width will scale accordingly, prefer to control height v width*/ }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }

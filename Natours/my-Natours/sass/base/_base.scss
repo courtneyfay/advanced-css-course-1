@@ -1,0 +1,20 @@
+/*basic CSS reset for cross-browser support*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*can use inherit keyword to force inheritance*/
+}
+
+html {
+  /* this is the place to define font-size in order to use rems */
+  /* this makes it much easier to write media queries and make responsive sites */
+  font-size: 62.5%;
+  /*better practice not to over-ride user font size settings with px */
+  /*when 10 px, 1 rem = 10 px*/
+}
+
+body {
+  box-sizing: border-box;
+}

@@ -1,0 +1,52 @@
+@keyframes moveInLeft {
+  /* 0% is before the animation starts, initial state */
+  0% {
+    opacity: 0; /*makes element invisible to start*/
+    transform: translateX(
+      -10rem
+    ); /*start a bit to the left*/ /*can use multiple transforms in the same row*/
+  }
+
+  /* 60% {
+      transform: rotate(180deg);
+    } */
+
+  /*can create intermediate states*/
+  80% {
+    transform: translateX(1rem); /*gives it a small bounce to the right*/
+  }
+
+  /* 100% is after the animation ends, final state*/
+  100% {
+    opacity: 1;
+    transform: translate(0); /*move it to where it is right now*/
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); /*start a bit to the right*/
+  }
+
+  80% {
+    transform: translateX(-1rem); /*gives it a small bounce to the left*/
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); /*start a bit to the right*/
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
