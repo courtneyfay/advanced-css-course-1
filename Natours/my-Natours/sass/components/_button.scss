@@ -1,8 +1,9 @@
 /* pseudo classes - special states of an element, e.g. link */
 .btn {
+  &,
   &:link,
-      /* has already clicked on button once */
-      &:visited {
+  /* has already clicked on button once */
+  &:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -10,6 +11,10 @@
     border-radius: 10rem; /*rounds the edges*/
     transition: all 0.2s; /*transition property needs to be on initial state*/
     position: relative;
+
+    //settings for button element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -24,7 +29,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translate(-1px);
     /* makes the button look closer to the page, 5px is distance from button, 10px is blur */
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
