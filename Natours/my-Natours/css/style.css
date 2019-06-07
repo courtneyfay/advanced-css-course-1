@@ -139,6 +139,20 @@ body {
 .u-margin-top-big {
   margin-top: 8rem; }
 
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  overflow: hidden; }
+  .background-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 /* pseudo classes - special states of an element, e.g. link */
 .btn {
   /* 'after' pseudo element adds a virtual element that we can then style */ }
@@ -349,9 +363,9 @@ body {
 
 .testimonial {
   width: 75%;
-  margin: 0 auto;
+  margin: 2rem auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
   padding: 6rem;
   padding-left: 9rem;
@@ -367,11 +381,33 @@ body {
     shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
-    transform: translateX(-3rem) skewX(12deg); }
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative; }
   .testimonial__image {
-    height: 100%; }
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all 0.5s; }
   .testimonial__text {
     transform: skewX(12deg); }
+  .testimonial__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden; }
+  .testimonial:hover .testimonial__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .testimonial:hover .testimonial__image {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); }
 
 .row {
   max-width: 114rem;
@@ -455,4 +491,4 @@ body {
 
 .section-testimonials {
   padding: 15rem 0;
-  background-color: #f7f7f7; }
+  position: relative; }

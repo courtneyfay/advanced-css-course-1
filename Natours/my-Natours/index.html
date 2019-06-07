@@ -249,6 +249,15 @@
       </section>
 
       <section class="section-testimonials">
+        <div class="background-video">
+          <!-- need both formats to make sure they work across all modern browsers -->
+          <video class="background-video__content" autoplay muted>
+            <source src="img/video.mp4" type="video/mp4" />
+            <source src="img/video.webm" type="video/webm" />
+            Your browser is not supported.
+          </video>
+        </div>
+
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondary">
             We make people genuinely happy
@@ -263,6 +272,9 @@
                 alt="Person on a tour"
                 class="testimonial__image"
               />
+              <figcaption class="testimonial__caption">
+                Mary Smith
+              </figcaption>
             </figure>
             <div class="testimonial__text">
               <h3 class="heading-tertiary u-margin-bottom-small">
@@ -277,6 +289,33 @@
               </p>
             </div>
           </div>
+          <div class="testimonial">
+            <figure class="testimonial__shape">
+              <img
+                src="img/nat-9.jpg"
+                alt="Person on a tour"
+                class="testimonial__image"
+              />
+              <figcaption class="testimonial__caption">
+                Jack Wilson
+              </figcaption>
+            </figure>
+            <div class="testimonial__text">
+              <h3 class="heading-tertiary u-margin-bottom-small">
+                Wow! My life is completely different now
+              </h3>
+              <p>
+                Half-giant jinxes peg-leg gillywater broken glasses large black
+                dog Great Hall. Nearly-Headless Nick now string them together,
+                and answer me this, which creature would you be unwilling to
+                kiss? Poltergeist sticking charm, troll umbrella stand flying
+                cars golden locket Lily Potter.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="u-center-text u-margin-top-huge">
+          <a href="" class="btn-text">Read all testimonials &rarr;</a>
         </div>
       </section>
     </main>
