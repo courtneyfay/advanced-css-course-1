@@ -18,6 +18,10 @@
     0 100%
   ); /*changes the shape of the div*/ /* top left x y, top right x y, bottom right x y, bottom left x y*/ /*helpful resource https://bennettfeely.com/clippy/*/
 
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
   &__logo-box {
     /* tells the css absolutely where to position img relative to parent element (header) w relative positioning */
     position: absolute;
