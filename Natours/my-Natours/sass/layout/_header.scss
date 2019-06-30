@@ -5,11 +5,10 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(../img/hero.jpg); /*can combine functions inside background-image */
+    url(../img/hero-small.jpg); /*can combine functions inside background-image */
   background-size: cover; /*fits element inside the container, makes it responsive*/
   background-position: top; /*specifies the top edge as the origin for the next offset*/
   position: relative; /*allows logo to be moved in relation to this element*/
-
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(
     0 0,
@@ -17,6 +16,18 @@
     100% 75vh,
     0 100%
   ); /*changes the shape of the div*/ /* top left x y, top right x y, bottom right x y, bottom left x y*/ /*helpful resource https://bennettfeely.com/clippy/*/
+
+  // resolution of an apple retina screen (high res)
+  // dpi - dots per inch
+  //if high res and screen bigger than a phone OR huge screen, use the higher res image
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
 
   @include respond(phone) {
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

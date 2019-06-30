@@ -801,7 +801,7 @@ body {
 .header {
   height: 95vh;
   /*vh makes it that percentage of the viewport height*/
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   /*can combine functions inside background-image */
   background-size: cover;
   /*fits element inside the container, makes it responsive*/
@@ -818,6 +818,9 @@ body {
   /* .logo:hover {
       animation: moveInRight 1s ease-out;
       } */ }
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    .header {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
   @media (max-width: 37.5em) {
     .header {
       clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
